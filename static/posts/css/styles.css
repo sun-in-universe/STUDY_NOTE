@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'NanumBarunpenB';
+  src: url('{% static "C:/STUDY_NOTE/ch99/posts/static/posts/fonts/NanumBarunpenB.ttf" %}') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'NanumBarunpenB', Arial, sans-serif;
+  background-color : #d7cfb7;
+}
+
+/* 메모장 컨테이너 스타일 */
+.post {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  position: relative;
+  margin: 20px;
+  float: left;
+}
+
+/* 메모장 헤더 스타일 */
+.memo-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 메모장 본문 스타일 */
+.memo-content {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 메모장 삭제 버튼 스타일 */
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: red;
+}
+
+
+
+
+

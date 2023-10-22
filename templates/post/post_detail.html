@@ -1,0 +1,46 @@
+{% extends './base.html' %}
+{% load static %}
+
+<!-- post_detail css -->
+{% block css %}
+    <link rel="stylesheet" href="{% static 'posts/css/post_detail.css' %}">
+    <style>
+        @font-face {
+            font-family: 'NanumBarunpenB';
+            src: url('{% static "posts/fonts/NanumBarunpenB.ttf" %}') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'NanumBarunpenB', Arial, sans-serif;
+        }
+    </style>
+{% endblock css %}
+
+{% block logo_text %}
+    <div id="header">
+            <h1><img src="{% static 'posts/images/headertxt.png' %}"></h1>
+        </div>
+    </div>
+{% endblock logo_text %}
+
+<!-- post_detail content-->
+{% block content %}
+    <div class="content">
+        <h1 class="title">{{post.title}}</h1>
+        <p class="text">{{post.content|linebreaksbr}}</p>
+        <p class="date_md">수정일 <span>{{post.dt_modified}}</span></p>
+    </div>
+    
+    <div class="btn">
+        <div class="btn_list"><a href="{% url 'posts:post_list' %}">목록으로</a></div>
+        <div class="right_btn">
+            {% if post.id %}
+                <div class="btn_modify"><a href="{% url 'posts:post_edit' post.id %}"> 수정하기 </a></div>
+                <div class="btn_delete"><a href="{% url 'posts:post_delete' post.id %}"> 삭제하기 </a></div>
+            {% endif %}
+        </div> 
+    </div>
+
+{% endblock content %}

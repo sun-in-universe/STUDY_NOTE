@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>빼꼼! :: 배운 내용을 꼼꼼하게!</title>
+    <meta charset="UTF-8">
+    {#html마다 다른 스타일을 적용하기 위한 블록 #} 
+    {% block css %}
+    {% endblock css %}
+</head>
+
+<body>
+   <div id="warp">
+        <div id="header">
+            {# 포스트 상세페이지마다 제목을 넣어주기 위한 블록 #}
+            {% block post_header %}
+            {% endblock post_header %}
+        </div>
+    
+        {# 글 목록에 로고를 만들어주기 위한 텍스트 블록 #}
+        {% block logo_text %}
+        {% endblock logo_text %}
+        <div id="content">
+            <div class="container">
+                {#콘텐트를 넣어주기 위한 블록 #} 
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
