@@ -115,6 +115,11 @@ h1 img{
     margin-right: 15px;
     float: left;
 }
+
+.btn_delete{
+    float: right;
+}
+
 .btn_list a{
     display: inline-block;
     padding: 10px 19px 11px;
@@ -140,6 +145,15 @@ h1 img{
     color: #69666d;
     background: #f6f6f6;
 }
+
+.btn_comment a{
+    display: inline-block;
+    padding: 10px 19px 11px;
+    font-size: 15px;
+    color: #69666d;
+    background: #f6f6f6;
+}
+
 .btn_delete a:hover, .btn_modify a:hover{
     color: #95929a;
     transition: all .2s;

@@ -24,18 +24,5 @@ class PostForm(forms.ModelForm):
             raise forms.ValidationError('*는 포함될 수 없습니다.')
         return cleaned_data 
     
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['content']
-        widgets = {
-            'content': forms.Textarea(attrs={
-                'placeholder': '댓글을 입력하세요'})
-        }
-
-    def clean(self):
-        cleaned_data = super().clean()
-        content = cleaned_data.get('content', '')
-        if '*' in content:
-            raise forms.ValidationError('*는 포함될 수 없습니다.')
-        return cleaned_data
+class CommentForm(forms.Form):
+    content = forms.CharField(widget=forms.Textarea, label='댓글 내용')

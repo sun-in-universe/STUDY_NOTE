@@ -1,0 +1,31 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'posts/css/post_form.css' %}">
+{% endblock css %}
+
+{% block post_header %}
+    <div class="container">
+        <h1>댓글 달기</h1>
+    </div>
+{% endblock post_header %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="editor">
+            <label for="{{ comment_form.content.id_for_label }}">댓글 내용:</label>
+            {{ comment_form.content }}
+            {% for error in comment_form.content.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+        </div>
+        <div class="submit">
+            <input type="submit" value="작성 완료">
+        </div>
+    </form>
+    <div class="btn_back">
+        <a href="{% url 'posts:post_detail' post_id %}">돌아가기</a>
+    </div>
+{% endblock content %}

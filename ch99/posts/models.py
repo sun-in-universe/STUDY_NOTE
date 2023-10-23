@@ -23,9 +23,11 @@ class Post(models.Model):
         return self.title
 
 
+
 class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)  # ForeignKey를 사용해 Post 모델과 관련짓음
     content = models.TextField()
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    dt_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.content
+        return f"Comment on {self.post.title}"
